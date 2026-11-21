@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { transliterateArmenian, normalizeWhitespace, containsArmenian, codePointLength } from '../src/index.js';
 
 test('Armenian letters and digraph', () => {
-  assert.equal(transliterateArmenian('Բարև'), 'Bareվ');
+  assert.equal(transliterateArmenian('Բարև'), 'Barev');
   assert.equal(transliterateArmenian('ուր'), 'ur');
   assert.equal(transliterateArmenian('Ուր'), 'Ur');
   assert.equal(transliterateArmenian('Hello 123'), 'Hello 123');
