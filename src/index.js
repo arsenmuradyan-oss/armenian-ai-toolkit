@@ -8,8 +8,9 @@ for (const [i,c] of [...UPPER].entries()) map.set(c, LATIN[i][0].toUpperCase()+L
  * Armenian digraph ու is rendered as u; other characters are preserved. */
 export function transliterateArmenian(value) {
   if (typeof value !== 'string') throw new TypeError('Expected a string');
-  return value.normalize('NFC').replace(/Ու|ու|ՈՒ|[\u0531-\u0556\u0561-\u0586]/gu, c => {
+  return value.normalize('NFC').replace(/Ու|ու|ՈՒ|[\u0531-\u0556\u0561-\u0587]/gu, c => {
     if (c === 'ու') return 'u';
+    if (c === 'և') return 'ev';
     if (c === 'Ու' || c === 'ՈՒ') return 'U';
     return map.get(c) ?? c;
   });
